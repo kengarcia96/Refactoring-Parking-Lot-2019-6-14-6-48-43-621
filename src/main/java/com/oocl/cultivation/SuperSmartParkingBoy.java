@@ -4,7 +4,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class SuperSmartParkingBoy extends ParkingBoy{
-
+    private static final String NOT_ENOUGH_POSITION = "Not enough position.";
 
     public SuperSmartParkingBoy(ParkingLot parkingLot) {
         super(parkingLot);
@@ -18,7 +18,7 @@ public class SuperSmartParkingBoy extends ParkingBoy{
                 .orElse(null);
 
         if (parkingLot == null) {
-            setLastErrorMessage("Not enough position.");
+            setLastErrorMessage(NOT_ENOUGH_POSITION);
             return null;
         }
 
