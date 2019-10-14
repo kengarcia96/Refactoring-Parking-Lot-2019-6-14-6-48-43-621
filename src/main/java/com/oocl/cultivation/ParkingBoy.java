@@ -7,6 +7,10 @@ public class ParkingBoy {
 
     private List<ParkingLot> parkingLots = new ArrayList<>();
     private ParkingLot parkingLot;
+    private static final String NOT_ENOUGH_POSITION = "Not enough position.";
+    private static final String UNRECOGNIZED_PARKING_TICKET = "Unrecognized parking ticket";
+    private static final String PLEASE_PROVIDE_YOUR_PARKING_TICKET = "Please provide your parking ticket.";
+
 
     private String lastErrorMessage;
 
@@ -36,7 +40,7 @@ public class ParkingBoy {
         }
 
         if(ticket == null){
-            lastErrorMessage = "Not enough position.";
+            lastErrorMessage = NOT_ENOUGH_POSITION;
             return null;
         }
 
@@ -50,12 +54,12 @@ public class ParkingBoy {
         Car carsGot = parkingLot.fetchCar(ticket);
 
         if (ticket == null){
-            lastErrorMessage = "Please provide your parking ticket.";
+            lastErrorMessage = PLEASE_PROVIDE_YOUR_PARKING_TICKET;
             return null;
         }
 
         else if (carsGot == null) {
-            lastErrorMessage = "Unrecognized parking ticket";
+            lastErrorMessage = UNRECOGNIZED_PARKING_TICKET;
             return null;
         }
         else {
